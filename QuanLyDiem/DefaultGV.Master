@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultGV.master.cs" Inherits="QuanLyDiem.DefaultGV1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Quản lý điểm</title>
+    <link rel="stylesheet" type="text/css" href="Style/css/style.css" media="all" />
+</head>
+<body>
+    <div id="wrapper">
+        <div id="banner"></div>
+        <div id="menu">
+            <div class="left"></div>
+            <ul>
+                <asp:Repeater ID="rptMenu" runat="server">
+                    <ItemTemplate>
+                        <li <%# (bool)Eval("current") ? "class=\"active\"" : "" %>>
+                            <a href="<%#Eval("link") %>"><%#Eval("name") %></a>
+                        </li>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </ul>
+            <div class="right"></div>
+        </div>
+
+        <div id="main">
+            <form id="Form1" runat="server">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </form>
+
+        </div>
+        <div id="footer">
+            <div id="footer_m">
+                <div class="copyright">
+                    Designed by: Hậu, Hiếu, Tuấn, Chinh, Phụng
+                </div>
+            </div>
+            <div id="footer_r"></div>
+        </div>
+    </div>
+
+</body>
+</html>

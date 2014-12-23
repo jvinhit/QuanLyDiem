@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="QuanLyDiem.Default" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Quản lý điểm</title>
+    <link rel="stylesheet" type="text/css" href="Style/css/style.css" media="all"/>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <div id="wrapper">
+        <div id="banner"></div>
+        <div id="menu">
+            <div class="left"></div>
+            <ul>
+                
+                <asp:Repeater ID="rptMenu" runat="server">
+                    <ItemTemplate>
+                         <li <%# (bool)Eval("current") ? "class=\"active\"" : "" %>>
+                            <a href="<%#Eval("link") %>"><%#Eval("name") %></a>
+                         </li>
+                    </ItemTemplate>   
+                 </asp:Repeater>
+            </ul>
+            <div class="right"></div>
+        </div>
+        
+        <div id="main">
+      <form id="Form1" runat="server">
+      <div id="Div1" style="min-height:450px;overflow: hidden;padding-bottom: 70px;background-color: White; font-family: Arial,Times New Roman,Tahoma;padding-left:10px">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+      </asp:ContentPlaceHolder>
+      </div>
+    </form>
+               
+        </div>
+        <div id="footer">
+            <div id="footer_m">
+                <div class="copyright">
+                 SPKT
+                </div>
+            </div>
+            <div id="footer_r"></div>
+        </div>
+    </div>
+
+</body>
+</html>
